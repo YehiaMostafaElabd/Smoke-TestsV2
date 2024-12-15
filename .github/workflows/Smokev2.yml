@@ -1,12 +1,16 @@
+
+
+name: Smokev2
+
 on:
   workflow_dispatch:
-
 jobs:
-  job1:
+  call_example:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Local Action Call
-        id: local-action
-        uses: Smoke-TestsV2/tests/smoke-test1.yaml@main
- 
+      - name: Call Reusable Workflow
+        uses: ./.github/workflows/example.yml
+        with:
+          message: "Hello from the caller workflow!"
+      - name: Use Output
+        run: echo "The result is ${{ jobs.call_example.outputs.echo_output }}"
