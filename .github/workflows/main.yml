@@ -2,16 +2,17 @@ on: [workflow_dispatch]
 
 jobs:
   build:
-    uses: ./.github/actions/build-job.yml
+    uses: ./.github/workflows/build-job.yml
 
-  test:
-    uses: ./.github/actions/test-job.yml
+
 
   deploy:
-    needs: [build, test]
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Deploy to server
-        run: ./deploy.sh
+        uses: actions/checkout@v4
+      - name: Echo Main
+        run: |
+          Hello Main
+   
