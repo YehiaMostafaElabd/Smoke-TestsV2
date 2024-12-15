@@ -1,9 +1,8 @@
-
-
-name: Smokev2
+name: Caller Workflow
 
 on:
   workflow_dispatch:
+
 jobs:
   call_example:
     runs-on: ubuntu-latest
