@@ -11,7 +11,3 @@ jobs:
         uses: actions/checkout@v3
       - name: Call Reusable Workflow
         uses: ./.github/workflows/example.yml
-        with:
-          message: "Hello from the caller workflow!"
-      - name: Use Output
-        run: echo "The result is ${{ jobs.call_example.outputs.echo_output }}"
