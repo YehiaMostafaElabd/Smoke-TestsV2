@@ -10,4 +10,4 @@ jobs:
     - uses: actions/checkout@v4
     - name: Hello
       run: |
-        Echo Hello World
+        echo Hello World
