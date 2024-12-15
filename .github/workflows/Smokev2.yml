@@ -8,5 +8,5 @@ jobs:
       - uses: actions/checkout@v4
       - name: Local Action Call
         id: local-action
-        uses: tests/smoke-test1.yaml@main
+        uses: Smoke-TestsV2/tests/smoke-test1.yaml@main
  
