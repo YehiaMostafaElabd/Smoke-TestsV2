@@ -18,7 +18,7 @@ jobs:
       matrix:
         suite: ${{ fromJSON(needs.suites.outputs.suites) }}
     steps:
-      - uses: actions/checkout@v
+      - uses: actions/checkout@v4
 
       - name: ${{ matrix.suite }}
         env:
