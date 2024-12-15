@@ -2,7 +2,7 @@ on: [workflow_dispatch]
 
 jobs:
  call-workflow-branch-ref:
-    uses: YehiaMostafaElabd/Smoke-TestsV2/.github/workflows/build-job.yml@Testing
+    uses: ./.github/workflows/build-job.yml
  test:
     needs: [call-workflow-branch-ref]
     runs-on: ubuntu-latest
