@@ -1,0 +1,15 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Local Action Call
+        id: local-action
+        uses: ./.github/actions
+        with:
+          name: "World"
+      - name: Local Action Output
+        run: echo "${{ steps.local-action.outputs.random }}"
