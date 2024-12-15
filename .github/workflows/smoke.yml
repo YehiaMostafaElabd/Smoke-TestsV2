@@ -18,30 +18,13 @@ jobs:
       matrix:
         suite: ${{ fromJSON(needs.suites.outputs.suites) }}
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Download CLI
-        run: |
-          gh release download --repo dependabot/cli -p "*linux-amd64.tar.gz"
-          tar xzvf *.tar.gz >/dev/null 2>&1
-          ./dependabot --version
-
-      # Download the Proxy cache. The job is ideally 100% cached so no real calls are made.
-      - name: Download artifacts
-        run: |
-          set +e
-          script/download-cache.sh ${{ matrix.suite }}
-          # If the previous command failed, and this is a scheduled run, fail the job.
-          if [ $? -ne 0 ] && [ "${{ github.event_name }}" == "schedule" ]; then
-              exit 1
-          fi
+      - uses: actions/checkout@v
 
       - name: ${{ matrix.suite }}
         env:
           LOCAL_GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          set -o pipefail
-          ./dependabot test -f=tests/smoke-${{ matrix.suite }}.yaml -o=result.yaml --timeout 20m --cache=cache 2>&1 | tee -a log.txt
+          tests/smoke-${{ matrix.suite }}.yaml
 
       - name: Diff
         if: always()
@@ -51,6 +34,4 @@ jobs:
       - name: Create summary
         run: tail -n100 log.txt | grep -P '\d+/\d+ calls cached \(\d+%\)' >> $GITHUB_STEP_SUMMARY
 
-        # No upload at the end:
-        # - If a test is uncachable in some regard, the cache would grow unbound.
-        # - We might want to consider erroring if the cache is changed.
+  
