@@ -1,20 +1,9 @@
-on:
-  workflow_call:
-
-
-jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
       - name: Run Smoke Test 1
         run: echo "Hello From Smoke Test 1 Job 1"
 
-  job2:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Run Smoke Test 2
-        run: echo "Hello From Smoke Test 1 Job 2"
 
-         
  
 
