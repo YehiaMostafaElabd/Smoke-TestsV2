@@ -1,13 +1,10 @@
 on: [workflow_dispatch]
 
 jobs:
-  build:
-    uses: ./.github/workflows/build-job.yml@testing
-
-
-
-  deploy:
-    needs: [build]
+ call-workflow-branch-ref:
+    uses: YehiaMostafaElabd/.github/workflows/build-job.yml@Testing
+ test:
+    needs: [call-workflow-branch-ref]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
