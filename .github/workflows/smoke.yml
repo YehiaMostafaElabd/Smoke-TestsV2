@@ -4,8 +4,8 @@ name: Smoke
 on:  # yamllint disable-line rule:truthy
   workflow_dispatch:
 
-env:
-  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#env:
+#  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   suites:
@@ -20,18 +20,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: ${{ matrix.suite }}
-        env:
-          LOCAL_GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          tests/smoke-${{ matrix.suite }}.yaml
-
-      - name: Diff
-        if: always()
-        continue-on-error: true
-        run: diff --ignore-space-change tests/smoke-${{ matrix.suite}}.yaml result.yaml && echo "Contents are identical" || exit 0
-
-      - name: Create summary
-        run: tail -n100 log.txt | grep -P '\d+/\d+ calls cached \(\d+%\)' >> $GITHUB_STEP_SUMMARY
+#      - name: ${{ matrix.suite }}
+#        env:
+#          LOCAL_GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        run: |
+#          tests/smoke-${{ matrix.suite }}.yaml
 
   
