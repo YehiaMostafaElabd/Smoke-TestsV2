@@ -8,8 +8,5 @@ jobs:
       - uses: actions/checkout@v4
       - name: Local Action Call
         id: local-action
-        uses: ./.github/actions
-        with:
-          name: "World"
-      - name: Local Action Output
-        run: echo "${{ steps.local-action.outputs.random }}"
+        uses: tests/smoke-test1.yaml@main
+ 
