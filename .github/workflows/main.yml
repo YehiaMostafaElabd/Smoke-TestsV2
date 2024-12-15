@@ -1,12 +1,10 @@
 on: [workflow_dispatch]
 
 jobs:
- call-workflow-branch-ref:
+ call-workflow-1:
     uses: YehiaMostafaElabd/Smoke-TestsV2/.github/workflows/build-job.yml@Testing
- call-workflow-2:
-    uses: YehiaMostafaElabd/Smoke-TestsV2/.github/workflows/test.yaml@Testing
  test:
-    needs: [call-workflow-branch-ref]
+    needs: [call-workflow-1]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -14,4 +12,20 @@ jobs:
       - name: echo Main
         run: |
           echo Hello Main
+   
+ call-workflow-2:
+    uses: YehiaMostafaElabd/Smoke-TestsV2/.github/workflows/test.yaml@Testing
+ call-example-2:
+    uses: YehiaMostafaElabd/Smoke-TestsV2/.github/workflows/example.yml@Testing
+
+ test2:
+    needs: [call-example-2]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: echo Main
+        run: |
+            echo "| call-example-2    ${{ needs.call-example-2.result }} |" >> $GITHUB_STEP_SUMMARY
+
    
