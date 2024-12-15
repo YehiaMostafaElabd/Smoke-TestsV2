@@ -11,5 +11,4 @@ jobs:
         uses: ./.github/workflows/example.yml
         with:
           message: "Hello from the caller workflow!"
-      - name: Use Output
-        run: echo "The result is ${{ jobs.call_example.outputs.echo_output }}"
+
