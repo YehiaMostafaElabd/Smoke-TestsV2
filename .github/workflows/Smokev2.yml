@@ -7,8 +7,10 @@ jobs:
   call_example:
     runs-on: ubuntu-latest
     steps:
-      - name: Call Reusable Workflow
-        uses: ./.github/workflows/example.yml
-        with:
-          message: "Hello from the caller workflow!"
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+    - name: Call Reusable Workflow
+      uses: ./.github/workflows/example.yml
+      with:
+        message: "Hello from the caller workflow!"
 
