@@ -2,14 +2,7 @@ name: Example Reusable Workflow
 
 on:
   workflow_call:
-    inputs:
-      message:
-        type: string
-        required: true
-    outputs:
-      result:
-        description: "Result of the workflow"
-        value: ${{ steps.echo_step.outputs.result }}
+
 
 jobs:
   echo_job:
@@ -19,4 +12,4 @@ jobs:
     steps:
       - name: Echo Message
         id: echo_step
-        run: echo "::set-output name=result::$message"
+        run: echo "Hello world"
