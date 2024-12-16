@@ -11,8 +11,13 @@ jobs:
   echo_job:
     runs-on: ubuntu-latest
     outputs:
-       build_status: ${{ job.status }}
+       test: ${{ steps.Result.outputs.result }}
     steps:
       - name: Echo Reusable Message
-        id: echo_step
-        run: echo "Hello, ${{ inputs.date }}!"  >> $GITHUB_STEP_SUMMARY
+        run: |
+            echo "Hello, ${{ inputs.date }}!"  >> $GITHUB_STEP_SUMMARY
+            echo "1" >> $GITHUB_OUTPUT
+      - name: Echo Result
+        id: Result
+        run: |
+            echo  "result=1" >> $GITHUB_OUTPUT
