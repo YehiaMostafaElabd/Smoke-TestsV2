@@ -26,7 +26,8 @@ jobs:
         uses: actions/checkout@v4
       - name: echo Main
         run: |
-            echo "| call-example-2    ${{ needs.call-example-2.result }} |" >> $GITHUB_STEP_SUMMARY
+            echo "| call-example-2    ${{ needs.call-example-2.result }} >> $GITHUB_STEP_SUMMARY
+        continue-on-error: true # Simulates a failure in this step
 
  Date-artifact:
       runs-on: ubuntu-22.04
