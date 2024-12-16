@@ -54,4 +54,3 @@ jobs:
          echo "${{ needs.DATE-PASSING.outputs.build_status }}"  >> $GITHUB_STEP_SUMMARY
          echo 2  >> $GITHUB_STEP_SUMMARY
          echo "${{ needs.DATE-PASSING.result  }}"    >> $GITHUB_STEP_SUMMARY
-
