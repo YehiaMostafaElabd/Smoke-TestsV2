@@ -15,4 +15,4 @@ jobs:
     steps:
       - name: Echo Reusable Message
         id: echo_step
-        run: echo "Hello, ${{ inputs.date }}!"
+        run: echo "Hello, ${{ inputs.date }}!"  >> $GITHUB_STEP_SUMMARY
