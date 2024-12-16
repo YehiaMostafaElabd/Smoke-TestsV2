@@ -20,4 +20,4 @@ jobs:
       - name: Echo Result
         id: Result
         run: |
-            echo  "result=1" >> $GITHUB_OUTPUT
+            echo  "result=$(1)" >> $GITHUB_OUTPUT
