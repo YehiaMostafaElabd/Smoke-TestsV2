@@ -2,9 +2,4 @@ on: [workflow_dispatch]
 
 jobs:
  call-workflow-1:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Build
-        uses: ./.github/workflows/build-job.yml@Testing
+     uses: ${{ github.repository }}/.github/workflows/build-job.yml@Testing
