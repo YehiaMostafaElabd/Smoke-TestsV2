@@ -9,4 +9,4 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Run Hello World Composite Action
-        uses: ./.github/actions/hello-world-composite-action
+        uses: .github/actions/hello-world-composite-action@main
