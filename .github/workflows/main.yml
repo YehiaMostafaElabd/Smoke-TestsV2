@@ -19,7 +19,7 @@ jobs:
     uses: YehiaMostafaElabd/Smoke-TestsV2/.github/workflows/example.yml@Testing
 
  test2:
-    needs: [call-example-2]
+    needs: [call-example-2 , call-workflow-2, test]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -28,4 +28,19 @@ jobs:
         run: |
             echo "| call-example-2    ${{ needs.call-example-2.result }} |" >> $GITHUB_STEP_SUMMARY
 
-   
+ Date-artifact:
+      runs-on: ubuntu-22.04
+      outputs:
+        Artifact_Date: ${{ steps.date.outputs.date }}
+      steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Get current date
+        id: date
+        run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+ DATE-PASSING:
+     needs: [ Date-artifact ]
+     uses: YehiaMostafaElabd/Smoke-TestsV2/.github/workflows/DATE.yml@Testing
+     with:
+       date: ${{ needs.Date-artifact.outputs.Artifact_Date }} 
+
