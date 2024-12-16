@@ -1,4 +1,4 @@
-name: 'Hello World Composite Action'
+name: 'Hello World 235'
 description: 'A composite action that prints Hello World'
 runs:
   using: 'composite'
