@@ -42,5 +42,11 @@ jobs:
      needs: [ Date-artifact ]
      uses: YehiaMostafaElabd/Smoke-TestsV2/.github/workflows/DATE.yml@Testing
      with:
-       date: ${{ needs.Date-artifact.outputs.Artifact_Date }} 
+       date: ${{ needs.Date-artifact.outputs.Artifact_Date }}
+ use-output: 
+  needs: DATE-PASSING 
+  runs-on: ubuntu-latest 
+  steps: 
+    - name: Print Greeting 
+      run: echo "${{ needs.DATE-PASSING.build_status }}"
 
