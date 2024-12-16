@@ -2,10 +2,10 @@ on:
   workflow_call:
     inputs:
       date: 
-      description: 'date'
-      required: true
-      default: NA
-      type: string
+        description: 'date'
+        required: true
+        default: NA
+        type: string
 
 jobs:
   echo_job:
