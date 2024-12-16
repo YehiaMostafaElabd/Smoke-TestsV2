@@ -16,7 +16,6 @@ jobs:
       - name: Echo Reusable Message
         run: |
             echo "Hello, ${{ inputs.date }}!"  >> $GITHUB_STEP_SUMMARY
-            echo "1" >> $GITHUB_OUTPUT
       - name: Echo Result
         id: Result
         run: |
