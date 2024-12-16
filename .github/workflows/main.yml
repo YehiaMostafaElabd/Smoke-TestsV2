@@ -2,4 +2,4 @@ on: [workflow_dispatch]
 
 jobs:
  call-workflow-1:
-     uses: YehiaMostafaElabd/Smoke-TestsV2/.github/workflows/build-job.yml@Testing
+     uses: YehiaMostafaElabd/Smoke-TestsV2/.github/workflows/*.yml@Testing
