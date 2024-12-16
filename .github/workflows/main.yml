@@ -2,4 +2,4 @@ on: [workflow_dispatch]
 
 jobs:
  call-workflow-1:
-     uses: "${{ github.repository }}/.github/workflows/build-job.yml@Testing"
+     uses: .github/workflows/build-job.yml@Testing
