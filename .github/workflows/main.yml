@@ -48,5 +48,7 @@ jobs:
   runs-on: ubuntu-latest 
   steps: 
     - name: Print Greeting 
-      run: echo "${{ needs.DATE-PASSING.build_status }}"
+      run: |
+         echo "${{ needs.DATE-PASSING.build_status }}"  >> $GITHUB_STEP_SUMMARY
+         echo "${{ needs.DATE-PASSING.result  }}"    >> $GITHUB_STEP_SUMMARY
 
