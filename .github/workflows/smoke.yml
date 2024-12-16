@@ -22,7 +22,7 @@ jobs:
       
 
       - name: ${{ matrix.suite }}
-        uses: YehiaMostafaElabd/Smoke-TestsV2/tests/smoke-${{ matrix.suite }}.yml 
+        uses: YehiaMostafaElabd/Smoke-TestsV2/tests/smoke-${{ matrix.suite }}.yml@main
 
 
   
