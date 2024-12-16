@@ -1,0 +1,18 @@
+on:
+  workflow_call:
+    inputs:
+      date: 
+      description: 'date'
+      required: true
+      default: NA
+      type: string
+
+jobs:
+  echo_job:
+    runs-on: ubuntu-latest
+    outputs:
+       build_status: ${{ job.status }}
+    steps:
+      - name: Echo Reusable Message
+        id: echo_step
+        run: echo "Hello, ${{ inputs.date }}!"
