@@ -5,3 +5,4 @@ runs:
   steps:
     - name: Print Hello World
       run: echo "Hello World"
+      shell: bash  # Add this line
